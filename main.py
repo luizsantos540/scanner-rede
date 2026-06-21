@@ -1,8 +1,15 @@
 import socket
 
 
+def exibir_banner():
+    print("-" * 40)
+    print("      SCANNER DE REDE BÁSICO v1.0   ")
+    print("-" * 40)
+
+
 def solicitar_ip():
     ip = input("Digite o endereço IP que deseja verificar: ")
+    print("\nIniciando varredura... Por favor, aguarde.\n")
     return ip
 
 
@@ -30,8 +37,11 @@ def verificar_porta(ip, porta):
     return True
 
 
+exibir_banner()
 ip = solicitar_ip()
 
-for porta in range(1, 16):
+for porta in range(1, 101):
     if not verificar_porta(ip, porta):
         break
+
+print("\nVarredura finalizada. Verifique o arquivo resultado.txt.")
